@@ -5,21 +5,21 @@
   Time: 13:50
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=GBK"
+         pageEncoding="GBK"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="GBK">
     <title>guess</title>
 </head>
 <body>
 <%
-    request.setCharacterEncoding("UTF-8");
-    response.setCharacterEncoding("UTF-8");
+    request.setCharacterEncoding("GBK");
+    response.setCharacterEncoding("GBK");
 
-    int num1= (int)session.getAttribute("save");//è·å–äº§ç”Ÿçš„éšæœºæ•°
-    String guess1 = request.getParameter("guess");//è·å–ç”¨æˆ·çŒœæµ‹çš„æ•°å­—
+    int num1= (int)session.getAttribute("save");//»ñÈ¡²úÉúµÄËæ»úÊı
+    String guess1 = request.getParameter("guess");//»ñÈ¡ÓÃ»§²Â²âµÄÊı×Ö
     session.setAttribute("guess", guess1);
     String guess2 = (String)session.getAttribute("guess");
     int guess3 = Integer.parseInt(guess2);
