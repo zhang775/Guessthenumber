@@ -32,7 +32,7 @@
     String message = (String) session.getAttribute("message");
     if (message != null)
         out.println(message);
-    if(session.isNew()||"您猜对了,系统将重新分配随机数".equals(message))
+
         session.setAttribute("randomNumber", (int)(Math.random() * 100));
 %>
 <form action="guessing.jsp" method="post">

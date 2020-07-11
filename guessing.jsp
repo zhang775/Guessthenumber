@@ -28,7 +28,7 @@
         }else if(userNumber<randomNumber){
             response.sendRedirect("small.jsp");
         }else{
-            response.sendRedirect("right.jsp");
+            response.sendRedirect("success.jsp");
         }
     }else{
         response.sendRedirect("start.jsp");
