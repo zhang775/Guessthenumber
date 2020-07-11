@@ -28,20 +28,30 @@
     </style>
 </head>
 <body>
-<form method="get" action="start.jsp">
-    <h2>Guess the number</h2>
-
-    <%
-        int num =(int)(100*Math.random()+1);
-        session.setAttribute("save", new Integer(num));
-    %>
-    <%-- 产生的随机数是:<%=num %> --%>
-
-    <p>Please enter the guessed number:
-    <p><input type="text" name="guess">
-    <p><input type="submit" value="Click here to verify" >
-
+<%
+    String message = (String) session.getAttribute("message");
+    if (message != null)
+        out.println(message);
+    if(session.isNew()||"您猜对了,系统将重新分配随机数".equals(message))
+        session.setAttribute("randomNumber", (int)(Math.random() * 100));
+%>
+<form action="guessing.jsp" method="post">
+    <table border="200" align="center">
+        <tr>
+            <td>Welcome to play guessing numbers</td>
+        </tr>
+        <tr>
+            <td>Please enter a random number from 0 to 99:</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="userNumber"></td>
+        </tr>
+        <tr>
+            <td align="center"><input type="submit" value="Input"> <input
+                    type="reset" value="Revocation"></td>
+        </tr>
+    </table>
 </form>
-
 </body>
+
 </html>

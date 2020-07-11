@@ -5,35 +5,34 @@
   Time: 13:50
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=GBK"
-         pageEncoding="GBK"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="GBK">
+    <meta charset="UTF-8">
     <title>guess</title>
 </head>
 <body>
 <%
-    request.setCharacterEncoding("GBK");
-    response.setCharacterEncoding("GBK");
+    request.setCharacterEncoding("UTF-8");
+    String userNum = request.getParameter("userNumber");
+    int userNumber = (Integer) Integer.parseInt(userNum);
+    int randomNumber = (Integer)session.getAttribute("randomNumber");
+    if (userNumber <= 99 && userNumber >= 0) {
 
-    int num1= (int)session.getAttribute("save");//获取产生的随机数
-    String guess1 = request.getParameter("guess");//获取用户猜测的数字
-    session.setAttribute("guess", guess1);
-    String guess2 = (String)session.getAttribute("guess");
-    int guess3 = Integer.parseInt(guess2);
-    if(guess2!=null){
-        if(guess3>num1){
-            //response.sendRedirect("large.jsp");
+
+        if(userNumber>randomNumber){
+            //response.sendRedirect("test1large.jsp");
             request.getRequestDispatcher("large.jsp").forward(request,response);
-        }else if(guess3<num1){
+        }else if(userNumber<randomNumber){
             response.sendRedirect("small.jsp");
         }else{
             response.sendRedirect("right.jsp");
         }
+    }else{
+        response.sendRedirect("start.jsp");
     }
 %>
 </body>
-</html>
 </html>

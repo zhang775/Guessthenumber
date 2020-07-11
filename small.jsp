@@ -29,10 +29,10 @@
 </head>
 <body>
 
-<form method="get" action="test1guess.jsp">
-    <h3>The number you guessed is<%=session.getAttribute("guess") %></h3>
+<form method="get" action="guessing.jsp">
+    <h3>The number you guessed is<%=session.getAttribute("userNumber") %></h3>
     <h3>Small guess!</h3><br>
-    <p>Please re-enter the guessed number:<input type="text" name="guess">
+    <p>Please re-enter the guessed number:<input type="text" name="userNumber">
     <p><input type="submit" value="Verification" >
 
 </form>
